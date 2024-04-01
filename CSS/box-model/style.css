@@ -1,0 +1,145 @@
+/** ------------------------------------- -->
+/**  BOX MODEL IN CSS  (BOX SIZING)
+/** ---------------------------------------- --> */
+
+/*? The CSS Box Model consists of four main components:
+
+1. Content: This is the innermost part of the element, which holds the actual content, such as text, images, or other HTML elements.
+
+2. Padding: Padding is the space between the content and the element's border. It provides internal spacing within the element.
+            content and border ke bix ka space ko padding 
+    
+3. Border: The border surrounds the padding and content, creating a visible boundary around the element. It can have a thickness, style, and color.
+
+4. Margin: The margin is the space outside the element's border. It separates the element from other elements on the page and controls the spacing between elements. */
+
+/** VERY VERY IMPORTANT  */
+
+/*? CSS box-sizing is a property that controls how the total width and height of an element are calculated, including its content, padding, and border. It has two possible values: content-box (default) and border-box */
+
+/** box-sizing: content-box: */
+/*? In the default content-box value, an element's width and height are calculated based on its content area. Padding and border are added to the specified width and height.
+This means that if you set the width of an element to 100 pixels, and then add 10 pixels of padding and a 2-pixel border, the element's total width will be 100 + 10 + 2 = 112 pixels. */
+
+/**  box-sizing: border-box:
+When using border-box, an element's width and height include its content, padding, and border. Padding and border are subtracted from the specified width and height.
+In this case, if you set the width of an element to 100 pixels, and then add 10 pixels of padding and a 2-pixel border, the content area will be adjusted to fit within the specified 100-pixel width, and the padding and border are contained within that. */
+
+/** ---------------------------------------- --> */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Urbanist;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: hsl(0, 0%, 94%);
+}
+
+#main-heading {
+  padding: 40px 0;
+  font-weight: bold;
+  font-size: 48px;
+  color: #031721;
+  text-align: center;
+}
+
+p {
+  line-height: 1.6;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+/* box model css  */
+
+/** ------------------------------------- -->
+/**  NOTES + TIPS 
+/** ---------------------------------------- --> */
+
+/*? When you set the width and height properties of an element with CSS, you just set the width and height of the content area. To calculate the full size of an element, you must also add padding, borders and margins. */
+
+/* Default behavior 👉  width = 800 + 50 + 50 + 20 + 20 + 150px + 150px  */
+/* Default behavior 👉  height = 500 + 50 + 50 + 20 + 20 + 100px + 100px  */
+
+/** ------------------------------------- -->
+/** INTERVIEW QUESTIONS
+/** ---------------------------------------- --> */
+/*? 1: Explain what the CSS Box Model is and its components. */
+
+/*? 2: What is the purpose of the box-sizing property in CSS? ⭐⭐ */
+/* The box-sizing property controls how the total width and height of an element are calculated. The two values it can take are content-box (default) and border-box. content-box calculates the total size including padding and border, while border-box calculates the total size including only padding. */
+
+/*? 3: How can you make an element's content box 300 pixels wide with a 10-pixel border and 20-pixel padding? */
+
+/*? 4: How can you globally apply box-sizing: border-box; to all elements on a web page? ⭐⭐⭐*/
+/*? Here comes the Universal Operator  */
+
+
+
+/* The box-sizing property in CSS is used to control how the total width and height of an element are calculated, including padding and border, in relation to the content box.
+
+There are two main values for the box-sizing property:
+
+content-box (default): This is the default value. When an element has box-sizing: content-box, the specified width and height properties only apply to the content box. Padding and border are added to the specified width and height, making the actual rendered box larger.
+
+Example:
+
+css
+Copy code
+.example {
+  box-sizing: content-box;
+  width: 200px;
+  padding: 20px;
+  border: 2px solid black;
+}
+In this example, the total width of the element will be 244px (200px width + 20px left padding + 20px right padding + 2px left border + 2px right border).
+
+border-box: When an element has box-sizing: border-box, the specified width and height properties include padding and border. In other words, the padding and border are included within the specified width and height, and do not add to the overall size of the element.
+
+Example:
+
+css
+Copy code
+.example {
+  box-sizing: border-box;
+  width: 200px;
+  padding: 20px;
+  border: 2px solid black;
+}
+In this example, the total width of the element will be 200px, as the padding and border are included within the specified width.
+
+Choosing between content-box and border-box depends on the specific layout requirements and design preferences for a given project. The box-sizing property provides flexibility in how box dimensions are calculated, making it easier to work with layouts in CSS.
+
+User
+if margin is also give to an element woth box-sizing;content-box will that also be added
+ChatGPT
+Yes, if an element has box-sizing: content-box and you apply a margin to it, the margin will be added to the total width and height of the element.
+
+Here's an example:
+
+css
+Copy code
+.example {
+  box-sizing: content-box;
+  width: 200px;
+  padding: 20px;
+  border: 2px solid black;
+  margin: 10px;
+}
+In this example, the total width of the element will be calculated as follows:
+
+Width: 200px (specified width)
+Padding: 20px on each side (total 40px)
+Border: 2px on each side (total 4px)
+Margin: 10px on each side (total 20px)
+Total width = Width + Padding + Border + Margin
+Total width = 200px + 40px + 4px + 20px = 264px
+
+So, in this case, the element will have a total width of 264 pixels. The margin is added to the total calculated width when box-sizing is set to content-box */
